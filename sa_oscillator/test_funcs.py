@@ -1,4 +1,4 @@
-
+import numpy as np
 
 class Step:
 
@@ -29,6 +29,17 @@ class SquareWave:
         else:
             value = self.upper_value
         return value
+
+
+class SineWave:
+
+    def __init__(self, period=1.0, amplitude=1.0, offset=1.0):
+        self.period = period
+        self.amplitude = amplitude
+        self.offset = offset
+
+    def __call__(self,t):
+        return self.amplitude*np.sin(2.0*np.pi*t/self.period) + self.offset
 
 
 def zero_func(t):
